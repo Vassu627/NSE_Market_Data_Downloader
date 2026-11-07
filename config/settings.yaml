@@ -1,0 +1,29 @@
+# NSE Market Data Downloader — runtime defaults (override with CLI / env where supported)
+base_url: "https://www.nseindia.com"
+
+# Optional override for the first HTML GET (cookies). Empty = use each dataset's page path from PAGE_URLS.
+session_init_path: ""
+
+# HTTP timeouts: [connect_seconds, read_seconds]
+timeout: [8, 25]
+
+# Retries for transient failures (429, 5xx, timeouts)
+max_retries: 4
+backoff_factor_seconds: 1.5
+
+# Polite delay between API calls when downloading "all" datasets (seconds)
+inter_request_delay_seconds: 0.6
+
+# Default output folder (relative to cwd unless absolute)
+output_dir: "output"
+
+# Bonus: SQLite mirror of each snapshot (same rows as CSV, optional)
+sqlite:
+  enabled: false
+  path: "output/nse_snapshots.db"
+
+# Bonus: POST JSON here when any dataset fails (Slack incoming webhook, etc.)
+notify_webhook_url: ""
+
+# Bonus: delete dated subfolders under output_dir older than N days (0 = off)
+history_retention_days: 0

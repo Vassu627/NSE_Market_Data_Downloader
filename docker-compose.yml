@@ -1,0 +1,30 @@
+# Daily download at 16:05 IST (after market close). Override schedule/timezone as needed.
+services:
+  nse-downloader:
+    build: .
+    init: true
+    environment:
+      TZ: Asia/Kolkata
+      NSE_OUTPUT_DIR: /app/output
+      # Optional: NSE_SQLITE=1, NSE_SQLITE_PATH, NSE_NOTIFY_WEBHOOK, NSE_HISTORY_RETENTION_DAYS
+    volumes:
+      - ./output:/app/output
+    # Run once then exit; cron/Task Scheduler pattern, or use watch below:
+    command: ["python", "main.py", "--output-dir", "/app/output"]
+
+  # Alternative: stay up and run at fixed IST time (see --schedule-daily)
+  nse-scheduled:
+    build: .
+    profiles: ["scheduled"]
+    init: true
+    environment:
+      TZ: Asia/Kolkata
+      NSE_OUTPUT_DIR: /app/output
+    volumes:
+      - ./output:/app/output
+    command:
+      [
+        "python", "main.py",
+        "--output-dir", "/app/output",
+        "--schedule-daily", "16:05",
+      ]

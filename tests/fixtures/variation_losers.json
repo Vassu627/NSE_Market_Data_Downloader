@@ -1,0 +1,12 @@
+{
+  "NIFTY": {
+    "data": [
+      {
+        "symbol": "BBB",
+        "series": "EQ",
+        "ltp": 50.0,
+        "perChange": -2.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "NIFTY": {
+    "data": [
+      {
+        "symbol": "AAA",
+        "series": "EQ",
+        "ltp": 100.0,
+        "perChange": 1.5
+      }
+    ]
+  }
+}

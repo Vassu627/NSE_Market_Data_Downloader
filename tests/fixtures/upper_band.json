@@ -1,0 +1,20 @@
+{
+  "upper": {
+    "AllSec": {
+      "data": [
+        {
+          "symbol": "X",
+          "series": "EQ",
+          "ltp": 10.0,
+          "pChange": 5.0
+        },
+        {
+          "symbol": "X",
+          "series": "EQ",
+          "ltp": 10.0,
+          "pChange": 5.0
+        }
+      ]
+    }
+  }
+}
